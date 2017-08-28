@@ -2,12 +2,14 @@ package cn.fcffaf.android.geoquiz;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CheatActivity extends AppCompatActivity {
 
@@ -20,6 +22,7 @@ public class CheatActivity extends AppCompatActivity {
     private Boolean mAnswerIsTrue;
     private TextView mAnswerText;
     private Button mShowAnswerButton;
+    private Button mShowApiButton;
 
     public static Intent newIntent(Context packageContext,boolean answer_is_true){
         Intent i = new Intent(packageContext,CheatActivity.class);
@@ -52,6 +55,14 @@ public class CheatActivity extends AppCompatActivity {
                     mAnswerText.setText(R.string.false_button );
                 }
                 setAnswerShowResult(true);
+            }
+        });
+
+        mShowApiButton = (Button) findViewById(R.id.show_api_button);
+        mShowApiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(CheatActivity.this, "version" + Build.VERSION.RELEASE+ " :" + Build.VERSION.SDK_INT,Toast.LENGTH_SHORT).show();
             }
         });
 
