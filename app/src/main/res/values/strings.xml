@@ -19,6 +19,7 @@
     <!--cheat activity-->
     <string name="waring_text">真的要查看答案吗?</string>
     <string name="show_answer_button">查看答案</string>
+    <string name="show_api_button">查看运行版本</string>
 
 
 </resources>
